@@ -7,11 +7,16 @@
 - name: Setup Ambari Server
   shell: |
     ambari-server setup -s
+    
 - name: Start Ambari Server
   service:
     name: ambari-server
     state: started
   ignore_errors: true
+  
+- name: Setup Ambari Server
+  shell: |
+    ambari-server setup --jdbc-db=postgres --jdbc-driver=/usr/lib/ambari-server/postgresql-42.2.2.jar
   
 - name: Ensure Ambari Server starts during System Startup
   service:
@@ -19,7 +24,7 @@
     enabled: yes
 
 - name: copy the postgresql to location
-  copy: src=pg_hba.conf dest=/tmp/pg_hba.conf
+  copy: src=pg_hba.conf dest=/var/lib/pgsql/data/pg_hba.conf
   
 - name: create the databases for ranger,oozie,hive,
   script: /tmp/psql.sh
