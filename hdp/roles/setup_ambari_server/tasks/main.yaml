@@ -26,6 +26,42 @@
 - name: copy the postgresql to location
   copy: src=pg_hba.conf dest=/var/lib/pgsql/data/pg_hba.conf
   
-- name: create the databases for ranger,oozie,hive,
+- name: ensure packages are installed
+  yum:
+    name: "{{ packages }}"
+  vars:
+    packages:
+      - python-psycopg2
+
+- name: "copy psql.sh into temp psql"
+  become: yes
   copy: src=psql.sh dest=/tmp/psql.sh
-  script: /tmp/psql.sh
+
+- name: "create the databases for ranger,oozie,hive"
+  became: yes
+  shell: |
+     sh /tmp/psql.sh
+
+- name: ensure database is created
+  postgresql_db: name={{hive_dbname}}
+
+- name: ensure user has access to database
+  postgresql_user: db={{hive_dbname}} name={{hive_dbuser}} password={{hive_passwd}} priv=ALL
+    
+- name: ensure database is created
+  postgresql_db: name={{oozie_dbname}}
+
+- name: ensure user has access to database
+  postgresql_user: db={{oozie_dbname}} name={{oozie_dbuser}} password={{oozie_passwd}} priv=ALL
+    
+- name: ensure database is created
+  postgresql_db: name={{ranger_dbname}}
+
+- name: ensure user has access to database
+  postgresql_user: db={{ranger_dbname}} name={{ranger_dbuser}} password={{ranger_passwd}} priv=ALL
+    
+- name: ensure database is created
+  postgresql_db: name={{rangerkms_dbname}}
+
+- name: ensure user has access to database
+  postgresql_user: db={{rangerkms_dbname}} name={{rangerkms_dbuser}} password={{rangerkms_passwd}} priv=ALL
