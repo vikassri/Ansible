@@ -27,4 +27,5 @@
   copy: src=pg_hba.conf dest=/var/lib/pgsql/data/pg_hba.conf
   
 - name: create the databases for ranger,oozie,hive,
+  copy: src=psql.sh dest=/tmp/psql.sh
   script: /tmp/psql.sh
