@@ -4,13 +4,13 @@ hdp_repo: http://public-repo-1.hortonworks.com/HDP/centos7/3.x/updates/3.1.0.0
 hdp_utils_repo: http://public-repo-1.hortonworks.com/HDP-UTILS-1.1.0.22/repos/centos7
 hive_dbname: hive
 hive_dbuser: hive
-hive_passwd: hive@123
+hive_passwd: Hive@123
 oozie_dbname: oozie
 oozie_dbuser: oozie
-oozie_passwd: oozie@123
+oozie_passwd: Oozie@123
 ranger_dbname: ranger
 ranger_dbuser: rangeradmin
-ranger_passwd: ranger@123
+ranger_passwd: Ranger@123
 rangerkms_dbname: rangerkms
 rangerkms_dbuser: rangerkms
-rangerkms_passwd: rangerkms@123
+rangerkms_passwd: Rangerkms@123
