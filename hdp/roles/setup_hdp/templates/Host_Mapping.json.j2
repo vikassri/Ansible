@@ -16,20 +16,7 @@
           "oozie.service.JPAService.jdbc.password" : "{{ oozie_passwd }}"        
          }
       }
-    },
-  {
-      "ranger-admin-site" : {
-        "properties" : {
-          "ranger.jpa.jdbc.password" : "{{ ranger_passwd }}"
-        }
-      }
-      },{
-      "ranger-env" : {
-        "properties" : {
-          "db.password" : "{{ ranger_passwd }}"
-        }
-      }
-      }],
+    }],
         "host_groups" :[
                 {
                           "name" : "host_group_1",
