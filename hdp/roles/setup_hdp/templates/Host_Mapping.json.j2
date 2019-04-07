@@ -5,6 +5,7 @@
     {
       "hive-site" : {
         "properties" : {
+          "javax.jdo.option.ConnectionURL": "jdbc:postgresql://{{groups["master_nodes"][0]}}:5432/hive",
           "javax.jdo.option.ConnectionPassword" : "{{ hive_passwd }}"
         }
       }
@@ -20,6 +21,12 @@
       "ranger-admin-site" : {
         "properties" : {
           "ranger.jpa.jdbc.password" : "{{ ranger_passwd }}"
+        }
+      }
+      },{
+      "ranger-env" : {
+        "properties" : {
+          "db.password" : "{{ ranger_passwd }}"
         }
       }
       }],
