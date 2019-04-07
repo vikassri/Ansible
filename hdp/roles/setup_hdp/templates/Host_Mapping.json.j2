@@ -5,44 +5,44 @@
     {
       "hive-site" : {
         "properties" : {
-          "javax.jdo.option.ConnectionPassword" : {{ hive_passwd }}
+          "javax.jdo.option.ConnectionPassword" : "{{ hive_passwd }}"
         }
       }
     },
     {
       "oozie-site" : {
         "properties" : {
-          "oozie.service.JPAService.jdbc.password" : {{ oozie_passwd }}        }
+          "oozie.service.JPAService.jdbc.password" : "{{ oozie_passwd }}"        
+         }
       }
-    }
-  ],
+    },
   {
       "ranger-admin-site" : {
         "properties" : {
-          "ranger.jpa.jdbc.password" : "{{ ranger_passwd }}
+          "ranger.jpa.jdbc.password" : "{{ ranger_passwd }}"
         }
       }
-},
+      }],
         "host_groups" :[
                 {
                           "name" : "host_group_1",
-                          "hosts" : [{ "fqdn" : "master-1.field.hortonworks.com" }]
+                          "hosts" : [{ "fqdn" : "{{ groups["master_nodes"][0] }}" }]
                 },
                 {
                           "name" : "host_group_2",
-                          "hosts" : [{ "fqdn" : "master-2.field.hortonworks.com" }]
+                          "hosts" : [{ "fqdn" :  "{{ groups["master_nodes"][1] }}" }]
                 },
                 {
                           "name" : "host_group_3",
-                          "hosts" : [{ "fqdn" : "slave-1.field.hortonworks.com" }]
+                          "hosts" : [{ "fqdn" : "{{ groups["slave_nodes"][0] }}" }]
                 },
                 {
                           "name" : "host_group_4",
-                          "hosts" : [{ "fqdn" : "slave-2.field.hortonworks.com" }]
+                          "hosts" : [{ "fqdn" : "{{ groups["slave_nodes"][1] }}" }]
                 },
                 {
                           "name" : "host_group_5",
-                          "hosts" : [{ "fqdn" : "slave-3.field.hortonworks.com" }]
+                          "hosts" : [{ "fqdn" : "{{ groups["slave_nodes"][2] }}" }]
                 }
         ]
 }
