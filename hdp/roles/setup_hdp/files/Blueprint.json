@@ -1593,7 +1593,6 @@
                     "hive.server2.thrift.http.port": "10001",
                     "hive.server2.webui.cors.allowed.headers": "X-Requested-With,Content-Type,Accept,Origin,X-Requested-By,x-requested-by",
                     "hive.server2.logging.operation.log.location": "/tmp/hive/operation_logs",
-                    "javax.jdo.option.ConnectionURL": "jdbc:postgresql://%HOSTGROUP::host_group_1%:5432/hive",
                     "hive.materializedview.rewriting.incremental": "false",
                     "hive.map.aggr.hash.min.reduction": "0.5",
                     "hive.merge.size.per.task": "256000000",
