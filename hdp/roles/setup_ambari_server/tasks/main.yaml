@@ -38,7 +38,7 @@
   copy: src=psql.sh dest=/tmp/psql.sh
 
 - name: "create the databases for ranger,oozie,hive"
-  became: yes
+  become: yes
   shell: |
      sh /tmp/psql.sh
 
