@@ -1426,6 +1426,7 @@
                     "rangertagsync_user_password": "Ranger@197",
                     "ranger_admin_password": "Ranger@197",
                     "keyadmin_user_password": "Ranger@197",
+                    "admin_password": "Ranger@197",
                     "ranger_solr_shards": "1",
                     "ranger_pid_dir": "/var/run/ranger",
                     "create_db_dbuser": "false",
