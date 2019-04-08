@@ -148,7 +148,6 @@
                     "db_root_user": "root",
                     "DB_FLAVOR": "POSTGRES",
                     "db_name": "ranger",
-                    "db_passwd": "{{ranger_passwd}}",
                     "policymgr_external_url": "http://%HOSTGROUP::host_group_1%:6080",
                     "PATCH_RETRY_INTERVAL": "120",
                     "db_user": "rangeradmin",
