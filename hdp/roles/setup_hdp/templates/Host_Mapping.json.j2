@@ -16,6 +16,13 @@
           "oozie.service.JPAService.jdbc.password" : "{{ oozie_passwd }}"        
          }
       }
+    },
+    {
+      "admin-properties" : {
+        "properties" : {
+          "db_password" : "{{ ranger_passwd }}"        
+         }
+      }
     }],
         "host_groups" :[
                 {
