@@ -9,7 +9,14 @@
       - prerequisites
       - setup_ambari_agent
 
-
+- hosts: ambari_agents
+  become: true
+  vars_files:
+    - variables.yaml
+  roles:
+      - setup_ldap_clients
+      - setup_kerberos_clients
+        
 - hosts: ambari_node
   become: true
   vars_files:
