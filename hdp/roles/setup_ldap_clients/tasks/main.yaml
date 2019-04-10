@@ -1,0 +1,22 @@
+---
+
+- name: installing wget on all the node
+  become: true
+  yum:
+    name: unzip
+
+- name: copying the file
+  become: true
+  copy: src=ldap_client.sh dest=/tmp/
+
+- name: replacing the ip in ldap_client 
+  replace:
+      path: /tmp/ldap_client.sh
+      regexp: '127.0.0.1'
+      replace: '{{ldap_server_ip}}'
+      backup: no
+
+- name: Run ldap_client script
+  become: true
+  shell: |
+      sh /tmp/ldap_client.sh
