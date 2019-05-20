@@ -49,7 +49,6 @@
 - name: Check is umask Value exists
   command: grep "umask 0022" /etc/profile
   register: umask
-  always_run: True
   ignore_errors: True
   changed_when: False
  
